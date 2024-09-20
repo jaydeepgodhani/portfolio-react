@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Quattro";
+  src: url("../fonts/iAWriterQuattroV.ttf");
+}
+
+@font-face {
+  font-family: "Recoleta";
+  src: url("../fonts/Recoleta-Bold.woff2");
+}
+
+@layer base {
+  :root {
+    --color-bg: 241 240 232;
+    --color-primary: 14 46 59;
+    --color-secondary: 74 69 69;
+    --color-link: 255 215 0;
+    --color-link-contrast: 145 0 248;
+    --hr-dark: 0 0 0;
+  }
+
+  :root[class~="dark"] {
+    --color-bg: 14 46 59;
+    --color-primary: 216 215 195;
+    --color-secondary: 166 166 166;
+    --color-link: 145 0 248;
+    --color-link-contrast: 255 215 0;
+    --hr-dark: 255 255 255;
+  }
+
+  a {
+    @apply text-primary border-b-link border-b-[3px] hover:border-b-link-contrast;
+  }
+}
+/*
+@layer components {
+  .plain-link {
+    @apply text-primary
+  }
+} */
+
+body * {
+  @apply transition-all duration-500;
+}
