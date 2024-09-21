@@ -25,7 +25,7 @@ const Navbar = () => {
     <nav className="py-8">
       <ul className="w-full flex flex-col font-bold text-2xl items-center lg:flex-row">
         <li className="lg:w-[50%] xl:w-[60%] 2xl:w-[50%]">
-          <NavLink to="/" className="border-b-0">
+          <NavLink to="/portfolio-react" className="border-b-0">
             {time}
           </NavLink>
         </li>

@@ -12,7 +12,7 @@ function App() {
       <div className="2xl:w-1/2 px-4 lg:w-3/4">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/porfolio-react" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/winnings" element={<Winnings />} />
           <Route path="*" element={<NoMatch />} />

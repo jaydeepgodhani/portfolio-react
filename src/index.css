@@ -43,5 +43,5 @@
 } */
 
 body * {
-  @apply transition-all duration-500;
+  @apply transition-all duration-500 overscroll-none;
 }
