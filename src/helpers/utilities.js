@@ -12,19 +12,60 @@ export function showTime() {
   );
 }
 
-export const themeSwitcher = () => {
-  if (
-    localStorage.theme !== "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-    localStorage.theme = "dark";
+export const themeSwitcher = (isToggle) => {
+  if(isToggle) {
+    if (localStorage.theme !== 'dark') {
+      dark();
+    } else {
+      light();
+    }
   } else {
-    document.documentElement.classList.remove("dark");
-    localStorage.theme = "light";
+    // by restart
+    if(!("theme" in localStorage)) {
+      if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        dark();
+      } else {
+        light();
+      }
+    }
+    if (localStorage.theme === 'dark') {
+      dark();
+    } else {
+      light();
+    }
   }
 };
+
+const dark = () => {
+  document.documentElement.classList.add("dark");
+  localStorage.theme = "dark";
+}
+
+const light = () => {
+  document.documentElement.classList.remove("dark");
+      localStorage.theme = "light";
+}
+
+
+export function randomIntFromInterval(min, max) { // min and max included
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+export function shuffle(array) {
+  let currentIndex = array.length;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+
+    // Pick a remaining element...
+    let randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+}
 
 export const paragraphs = {
   aboutme: [
