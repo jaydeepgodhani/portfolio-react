@@ -1,18 +1,8 @@
-import React, { useState } from "react";
-import { shuffle } from "./helpers/utilities";
+import React from "react";
 import Heading from "./typography/Heading";
 import Para from "./typography/Para";
 
-const chars = ['⏺','⏹','⏶'];
-
 const Footer = () => {
-
-  const [pattern, setPattern] = useState(chars.join('  '));
-
-  const handleMouseOver = () => {
-    shuffle(chars);
-    setPattern(chars.join('  '));
-  }
 
   return (
     <div>
@@ -29,7 +19,7 @@ const Footer = () => {
         <a href="https://www.linkedin.com/in/jaydeepgodhani">LinkedIn</a>, and{" "}
         <a href="https://www.leetcode.com/jaydeepgodhani">LeetCode</a>
       </Para>
-      <div className="flex justify-center my-16 text-primary transition-all duration-1000" onMouseOver={handleMouseOver}>{pattern}</div>
+      <div className="flex justify-center my-16 text-primary transition-all duration-1000 text-xs">{'⬥ ⬥ ⬥'}</div>
 
     </div>
   );

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { showTime, themeSwitcher } from "./helpers/utilities";
+import { DARK, LIGHT, showTime, themeSwitcher } from "./helpers/utilities";
 
 const Navbar = () => {
   const [time, setTime] = useState(showTime());
 
   const toggleTheme = () => {
-    themeSwitcher(true);
+    themeSwitcher(localStorage.theme === DARK ? LIGHT : DARK);
   };
 
   useEffect(() => {
+    themeSwitcher(localStorage.theme);
     const timer = setInterval(() => {
       setTime(showTime());
     }, 20000);
@@ -35,7 +36,7 @@ const Navbar = () => {
           <li>
             <button
               onMouseDown={toggleTheme}
-              className="w-auto h-full flex items-center justify-center cursor-pointer mx-3"
+              className="w-auto h-full flex items-center justify-center cursor-pointer mx-3 text-3xl"
             >
               {/* <svg className="h-6 w-full m-2 text-primary" viewBox="0 0 24 24">
                 <desc>Theme Switcher Icon</desc>
@@ -44,7 +45,6 @@ const Navbar = () => {
                 </g>
               </svg> */}
               <div className="bg-primary w-4 h-4 relative text-center rotate-[20deg] before:content-* before:absolute before:top-0 before:left-0 before:h-4 before:w-4 before:bg-primary before:rotate-[135deg]"></div>
-
             </button>
           </li>
         </div>

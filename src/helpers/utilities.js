@@ -1,5 +1,18 @@
 const weekday = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
 
+const dark = () => {
+  document.documentElement.classList.add(DARK);
+  localStorage.theme = DARK;
+};
+
+const light = () => {
+  document.documentElement.classList.remove(DARK);
+  localStorage.theme = LIGHT;
+};
+
+export const DARK = 'dark';
+export const LIGHT = 'light';
+
 export function showTime() {
   const time = new Date();
   return (
@@ -12,23 +25,15 @@ export function showTime() {
   );
 }
 
-export const themeSwitcher = (isToggle) => {
-  if(isToggle) {
-    if (localStorage.theme !== 'dark') {
+export const themeSwitcher = (mode) => {
+  if (!("theme" in localStorage)) {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       dark();
     } else {
       light();
     }
   } else {
-    // by restart
-    if(!("theme" in localStorage)) {
-      if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        dark();
-      } else {
-        light();
-      }
-    }
-    if (localStorage.theme === 'dark') {
+    if (mode === DARK) {
       dark();
     } else {
       light();
@@ -36,34 +41,23 @@ export const themeSwitcher = (isToggle) => {
   }
 };
 
-const dark = () => {
-  document.documentElement.classList.add("dark");
-  localStorage.theme = "dark";
-}
-
-const light = () => {
-  document.documentElement.classList.remove("dark");
-      localStorage.theme = "light";
-}
-
-
-export function randomIntFromInterval(min, max) { // min and max included
+export function randomIntFromInterval(min, max) {
+  // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 export function shuffle(array) {
   let currentIndex = array.length;
-
   // While there remain elements to shuffle...
   while (currentIndex != 0) {
-
     // Pick a remaining element...
     let randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
-
     // And swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
+      array[randomIndex],
+      array[currentIndex],
+    ];
   }
 }
 
