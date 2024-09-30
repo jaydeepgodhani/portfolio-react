@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <nav className="py-6 sticky top-0 backdrop-opacity-95 backdrop-blur-xs z-10">
-      <ul className="w-full flex flex-col text-2xl items-center lg:flex-row">
+      <ul className="w-full flex flex-col text-xl items-center lg:flex-row">
         <li className="lg:w-[50%] xl:w-[60%] 2xl:w-[50%]">
           <NavLink
             to="/"
@@ -35,6 +35,9 @@ const Navbar = () => {
           </li>
           <li className="mx-4">
             <NavLink to="/winnings" className={ ({isActive})  => isActive ? "text-primary" : ""}>Winnings</NavLink>
+          </li>
+          <li className="mx-4">
+            <NavLink to="/posts" className={ ({isActive})  => isActive ? "text-primary" : ""}>Posts</NavLink>
           </li>
           <li>
             <button

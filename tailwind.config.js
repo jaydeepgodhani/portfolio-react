@@ -34,6 +34,8 @@ export default {
       secondary: 'rgb(var(--color-secondary))',
       link: 'rgb(var(--color-link))',
       'link-contrast': 'rgb(var(--color-link-contrast))',
+      'code-bg': 'rgb(var(--color-code-bg))',
+      'quote-bg': 'rgb(var(--color-quote-bg))',
       bg: 'rgb(var(--color-bg))',
     }
   },

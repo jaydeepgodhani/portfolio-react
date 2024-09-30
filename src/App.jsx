@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import Home from "./Home";
 import Navbar from "./Navbar";
 import NoMatch from "./NoMatch";
+import Posts from "./Posts";
 import Projects from "./Projects";
 import Winnings from "./Winnings";
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/winnings" element={<Winnings />} />
+          <Route path="/posts" element={<Posts />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
         <Footer />
