@@ -19,7 +19,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="py-6 sticky top-0 backdrop-opacity-95 backdrop-blur-xs z-10">
+    <nav className="py-6 sticky top-0 backdrop-opacity-95 backdrop-blur-xs z-10 mb-4">
       <ul className="w-full flex flex-col text-xl items-center lg:flex-row">
         <li className="lg:w-[50%] xl:w-[60%] 2xl:w-[50%]">
           <NavLink

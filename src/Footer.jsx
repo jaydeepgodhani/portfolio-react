@@ -5,7 +5,7 @@ import Para from "./typography/Para";
 const Footer = () => {
 
   return (
-    <div>
+    <div className="pt-6">
       <Heading text={"Contact"} />
       <Para>
         Feel free to reach me at{" "}

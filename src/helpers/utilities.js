@@ -1,3 +1,4 @@
+
 const weekday = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
 
 const dark = () => {
@@ -60,6 +61,41 @@ export function shuffle(array) {
     ];
   }
 }
+
+export function getMapOfTags(content) {
+  const mapOfTags = {};
+  for(const obj of content) {
+    for (const tag of obj["tags"]) {
+      if (mapOfTags[tag]) {
+        mapOfTags[tag] = mapOfTags[tag] + 1;
+      } else {
+        mapOfTags[tag] = 1;
+      }
+
+    }
+  }
+  return mapOfTags;
+}
+
+export function getMapOfPosts(content) {
+  const mapOfPosts = {};
+  for(const obj of content) {
+    const year = obj.date.split("-")[0]
+    if (mapOfPosts[year]) {
+      mapOfPosts[year].push(obj);
+    } else {
+      mapOfPosts[year] = [obj];
+    }
+  }
+  return mapOfPosts;
+}
+
+export function dateToReadable (date) {
+  const dateString = new Date(Date.parse(date)).toDateString();
+  const firstIndex = dateString.indexOf(" ");
+  const lastIndex = dateString.lastIndexOf(" ");
+  return dateString.slice(firstIndex + 1, lastIndex);
+};
 
 export const paragraphs = {
   aboutme: [
