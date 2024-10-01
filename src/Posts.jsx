@@ -1,5 +1,5 @@
-import { useState } from "react";
-import markdownContent2 from "./assets/posts/001.md?raw";
+import { useEffect, useState } from "react";
+// import markdownContent2 from "./assets/posts/001.md?raw";
 import { getMapOfTags } from "./helpers/utilities";
 import ListPost from "./typography/ListPost";
 
@@ -21,19 +21,42 @@ const allContent = [
   },
 ];
 
+const tagMap = getMapOfTags(allContent);
+
+const checkSubset = (parentArray, subsetArray) => {
+  return subsetArray.every((el) => {
+      return parentArray.includes(el)
+  })
+}
+
 const Posts = () => {
-  console.log(markdownContent2);
+  // console.log(markdownContent2);
   const [content, setContent] = useState(allContent);
+  const [filter, setFilter] = useState([]);
 
   const filterTags = (e) => {
     const tagName = e.target.innerHTML;
-    setContent(content.filter(obj => {
-      if(obj.tags.includes(tagName)) return true;
-      else return false;
-    }));
-  }
+    const tagClasses = e.target.classList;
+    if (!filter.includes(tagName)) {
+      tagClasses.add("shadow-3xl");
+      tagClasses.remove("bg-code-bg");
+      setFilter([...filter, tagName]);
+    } else {
+      tagClasses.remove("shadow-3xl");
+      tagClasses.add("bg-code-bg");
+      setFilter(filter.filter((a) => a != tagName));
+    }
+  };
 
-  const tagMap = getMapOfTags(allContent);
+  useEffect(() => {
+    if(filter.length === 0) setContent(allContent);
+    else setContent(
+      allContent.filter((obj) => {
+        if (checkSubset(obj.tags, filter)) return true;
+        else return false;
+      })
+    );
+  }, [filter])
 
   return (
     <div>
