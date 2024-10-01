@@ -24,7 +24,6 @@
     --color-quote-bg: 249 250 229;
     overscroll-behavior: none;
     overflow: scroll;
-    cursor: default;
   }
 
   :root[class~="dark"] {
@@ -38,7 +37,6 @@
     --color-quote-bg: 57 45 61;
     overscroll-behavior: none;
     overflow: scroll;
-    cursor: default;
   }
 
   /* @apply text-primary border-b-link border-b-[3px] hover:border-b-link-contrast; */
