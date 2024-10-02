@@ -1,4 +1,3 @@
-
 const weekday = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
 
 const dark = () => {
@@ -11,8 +10,8 @@ const light = () => {
   localStorage.theme = LIGHT;
 };
 
-export const DARK = 'dark';
-export const LIGHT = 'light';
+export const DARK = "dark";
+export const LIGHT = "light";
 
 export function showTime() {
   const time = new Date();
@@ -64,38 +63,38 @@ export function shuffle(array) {
 
 export function getMapOfTags(content) {
   const mapOfTags = {};
-  for(const obj of content) {
+  for (const obj of content) {
     for (const tag of obj["tags"]) {
       if (mapOfTags[tag]) {
         mapOfTags[tag] = mapOfTags[tag] + 1;
       } else {
         mapOfTags[tag] = 1;
       }
-
     }
   }
   return mapOfTags;
 }
 
 export function getMapOfPosts(content) {
-  const mapOfPosts = {};
-  for(const obj of content) {
-    const year = obj.date.split("-")[0]
-    if (mapOfPosts[year]) {
-      mapOfPosts[year].push(obj);
+  const mapOfPosts = new Map();
+  for (const obj of content) {
+    const year = obj.date.split("-")[0];
+    const num = Number(year);
+    if (mapOfPosts.has(num)) {
+      mapOfPosts.get(num).push(obj);
     } else {
-      mapOfPosts[year] = [obj];
+      mapOfPosts.set(num, [obj]);
     }
   }
   return mapOfPosts;
 }
 
-export function dateToReadable (date) {
+export function dateToReadable(date) {
   const dateString = new Date(Date.parse(date)).toDateString();
   const firstIndex = dateString.indexOf(" ");
   const lastIndex = dateString.lastIndexOf(" ");
   return dateString.slice(firstIndex + 1, lastIndex);
-};
+}
 
 export const paragraphs = {
   aboutme: [

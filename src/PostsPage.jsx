@@ -1,27 +1,10 @@
 import { useEffect, useState } from "react";
 // import markdownContent2 from "./assets/posts/001.md?raw";
+import { metadata } from "./helpers/metadata";
 import { getMapOfTags } from "./helpers/utilities";
-import ListPost from "./typography/ListPost";
+import PostList from "./typography/PostList";
 
-const allContent = [
-  {
-    title: "first post",
-    date: "2024-10-01T08:52:15.486Z",
-    tags: ["tag1", "tag2"],
-  },
-  {
-    title: "second post",
-    date: "2023-01-01T08:52:15.486Z",
-    tags: ["tag2", "tag3"],
-  },
-  {
-    title: "third post",
-    date: "2023-06-01T08:52:15.486Z",
-    tags: ["tag3", "tag1"],
-  },
-];
-
-const tagMap = getMapOfTags(allContent);
+const tagMap = getMapOfTags(metadata);
 
 const checkSubset = (parentArray, subsetArray) => {
   return subsetArray.every((el) => {
@@ -29,9 +12,9 @@ const checkSubset = (parentArray, subsetArray) => {
   })
 }
 
-const Posts = () => {
+const PostsPage = () => {
   // console.log(markdownContent2);
-  const [content, setContent] = useState(allContent);
+  const [content, setContent] = useState(metadata);
   const [filter, setFilter] = useState([]);
 
   const filterTags = (e) => {
@@ -49,9 +32,9 @@ const Posts = () => {
   };
 
   useEffect(() => {
-    if(filter.length === 0) setContent(allContent);
+    if(filter.length === 0) setContent(metadata);
     else setContent(
-      allContent.filter((obj) => {
+      metadata.filter((obj) => {
         if (checkSubset(obj.tags, filter)) return true;
         else return false;
       })
@@ -72,9 +55,9 @@ const Posts = () => {
           </span>
         ))}
       </div>
-      <ListPost content={content} />
+      <PostList content={content} />
     </div>
   );
 };
 
-export default Posts;
+export default PostsPage;

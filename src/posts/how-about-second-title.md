@@ -1,8 +1,8 @@
-# My Blog Post
+# My Blog Post 002
 
 This is a paragraph with some inline code: `console.log('Hello World');` how does it look ? I dont'know. This is a paragraph with some inline code: `console.log('Hello World');` how does it look ? I dont'know.
 
-Here's another paragraph.
+Here's another paragraph 002.
 
 > This is a quote from someone important.
 

@@ -3,9 +3,11 @@ import Footer from "./Footer";
 import Home from "./Home";
 import Navbar from "./Navbar";
 import NoMatch from "./NoMatch";
-import Posts from "./Posts";
+import PostsPage from "./PostsPage";
 import Projects from "./Projects";
 import Winnings from "./Winnings";
+import { metadata } from "./helpers/metadata";
+import BlogPost from "./typography/BlogPost";
 
 function App() {
 
@@ -17,7 +19,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/winnings" element={<Winnings />} />
-          <Route path="/posts" element={<Posts />} />
+          <Route path="/posts" element={<PostsPage />} />
+          {metadata.map((e,i) => <Route key={i} path={`/posts/${e.link}`} element={<BlogPost content={e.link} />} />)}
           <Route path="*" element={<NoMatch />} />
         </Routes>
         <Footer />
