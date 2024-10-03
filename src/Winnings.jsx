@@ -5,7 +5,7 @@ import Radio from "./typography/Radio";
 
 const Winnings = () => {
   return (
-    <div>
+    <div className="animate-fade">
       <Heading text={"Certifications"} />
       <Radio text={textList.certifications}/>
       <Heading text={"Achievements"} />

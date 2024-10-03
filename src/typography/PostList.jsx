@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { dateToReadable, getMapOfPosts } from "../helpers/utilities";
 
 const PostList = ({ content }) => {
@@ -15,7 +15,7 @@ const PostList = ({ content }) => {
             <div key={obj.date} className="flex flex-row py-4">
               <div className="w-1/6 text-primary">{dateToReadable(obj.date)}</div>
               <div className="w-auto">
-                <NavLink to={`/posts/${obj.link}`} className="shadow-none hover:shadow-none bg-quote-bg block mb-2 text-primary">{obj.title}</NavLink>
+                <Link to={`/posts/${obj.link}`} className="shadow-none hover:shadow-none bg-quote-bg block mb-2 text-primary transition-all">{obj.title}</Link>
                 {obj.tags &&
                   obj.tags.map((t) => (
                     <span

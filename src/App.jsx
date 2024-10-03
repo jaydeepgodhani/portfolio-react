@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 import Home from "./Home";
 import Navbar from "./Navbar";
@@ -6,10 +6,11 @@ import NoMatch from "./NoMatch";
 import PostsPage from "./PostsPage";
 import Projects from "./Projects";
 import Winnings from "./Winnings";
-import { metadata } from "./helpers/metadata";
 import BlogPost from "./typography/BlogPost";
 
 function App() {
+  const location = useLocation();
+  const isSlugUrl = /^\/posts\/.+/; // do not show footer when on slug URL
 
   return (
     <div className="w-screen flex justify-center bg-bg min-h-screen">
@@ -20,10 +21,10 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/winnings" element={<Winnings />} />
           <Route path="/posts" element={<PostsPage />} />
-          {metadata.map((e,i) => <Route key={i} path={`/posts/${e.link}`} element={<BlogPost content={e.link} />} />)}
+          <Route path="/posts/:slug" element={<BlogPost />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
-        <Footer />
+        {!isSlugUrl.test(location.pathname) && <Footer />}
       </div>
     </div>
   );

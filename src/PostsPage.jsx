@@ -42,7 +42,7 @@ const PostsPage = () => {
   }, [filter])
 
   return (
-    <div>
+    <div className="animate-fade">
       <h2 className="font-heading text-2xl py-6 text-primary">Tags</h2>
       <div className="mb-4">
         {Object.keys(tagMap).map((e) => (

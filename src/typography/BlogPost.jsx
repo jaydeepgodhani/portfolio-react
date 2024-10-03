@@ -1,21 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import { useParams } from "react-router-dom";
 import Para from "./Para";
 
-const BlogPost = ({ content }) => {
-  useEffect(() => {
+const BlogPost = () => {
+  const { slug } = useParams();
+  const [content, setContent] = useState(null);
+
+  useLayoutEffect(() => {
     const fetchFileContent = async () => {
-      const url = `./posts/${content}.md`
-      console.log("🚀 > fetchFileContent > url:", url);
+      const url = `${import.meta.env.BASE_URL}/src/assets/posts/${slug}.md`;
       const response = await fetch(url);
-      const text = await response.text();
-      console.log(text);
+      if (response.ok) {
+        const text = await response.text();
+        setContent(text);
+      } else {
+        console.error("Failed to load markdown file:", response.status);
+      }
     };
     fetchFileContent();
-  }, [content]);
+  }, [slug]);
 
   return (
-    <article>
+    <article className="animate-fade">
       <ReactMarkdown
         components={{
           h1: ({ children }) => (
@@ -40,7 +47,6 @@ const BlogPost = ({ content }) => {
             </blockquote>
           ),
           code: (obj) => {
-            console.log(obj);
             return !obj.className ? (
               <code className="py-1 px-2 rounded-md bg-code-bg text-secondary text-sm">
                 {obj.children}

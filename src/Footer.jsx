@@ -5,7 +5,7 @@ import Para from "./typography/Para";
 const Footer = () => {
 
   return (
-    <div className="pt-6">
+    <div className="pt-6 animate-fade">
       <Heading text={"Contact"} />
       <Para>
         Feel free to reach me at{" "}

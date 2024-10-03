@@ -1,4 +1,11 @@
 export const metadata = [
+
+  {
+    title: 'This is forth title',
+    date: '2024-11-01',
+    tags: ['javascript', 'xylo'],
+    link: 'this-is-forth-title'
+  },
   {
     title: 'First ever title ?',
     date: '2024-10-01',
