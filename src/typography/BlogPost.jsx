@@ -9,7 +9,7 @@ const BlogPost = () => {
 
   useLayoutEffect(() => {
     const fetchFileContent = async () => {
-      const url = `${import.meta.env.BASE_URL}/src/assets/posts/${slug}.md`;
+      const url = `${import.meta.env.BASE_URL}/posts/${slug}.md`;
       const response = await fetch(url);
       if (response.ok) {
         const text = await response.text();
