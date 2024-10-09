@@ -11,6 +11,7 @@ import BlogPost from "./typography/BlogPost";
 function App() {
   const location = useLocation();
   const isSlugUrl = /^\/posts\/.+/; // do not show footer when on slug URL
+  console.log("Base URL : ", import.meta.env.BASE_URL);
 
   return (
     <div className="w-screen flex justify-center bg-bg min-h-screen">
