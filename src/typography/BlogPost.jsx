@@ -9,6 +9,7 @@ const BlogPost = () => {
   const { slug } = useParams();
   const [content, setContent] = useState(null);
   const postAvailable = isPostAvailable(slug);
+  console.log("🚀 > BlogPost > postAvailable:", postAvailable, slug);
 
   useLayoutEffect(() => {
     const fetchFileContent = async () => {

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 import Home from "./Home";
 import Navbar from "./Navbar";
@@ -9,8 +9,8 @@ import Winnings from "./Winnings";
 import BlogPost from "./typography/BlogPost";
 
 function App() {
-  // const location = useLocation();
-  // const isSlugUrl = /^\/posts\/.+/; // do not show footer when on slug URL
+  const location = useLocation();
+  const isSlugUrl = /^\/posts\/.+/; // do not show footer when on slug URL
 
   return (
     <div className="w-screen flex justify-center bg-bg min-h-screen">
@@ -24,8 +24,7 @@ function App() {
           <Route path="/posts/:slug" element={<BlogPost />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
-        {/* {!isSlugUrl.test(location.pathname) && <Footer />} */}
-        <Footer />
+        {!isSlugUrl.test(location.pathname) && <Footer />}
       </div>
     </div>
   );
