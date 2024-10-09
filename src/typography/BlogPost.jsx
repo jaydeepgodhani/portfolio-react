@@ -9,11 +9,11 @@ const BlogPost = () => {
   const { slug } = useParams();
   const [content, setContent] = useState(null);
   const postAvailable = isPostAvailable(slug);
-  console.log("🚀 > BlogPost > postAvailable:", postAvailable, slug);
 
   useLayoutEffect(() => {
     const fetchFileContent = async () => {
-      const response = await fetch(`${import.meta.env.BASE_URL}/posts/${slug}.md`);
+      const path = `${import.meta.env.BASE_URL}/posts/${slug}.md`;
+      const response = await fetch(path);
       if (response.ok) {
         const text = await response.text();
         setContent(text);
