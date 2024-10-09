@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/portfolio-react",
+  base: process.env.VITE_BASE_PATH || "/portfolio-react",
   plugins: [react()],
   assetsInclude: ['**/*.md']
 })
