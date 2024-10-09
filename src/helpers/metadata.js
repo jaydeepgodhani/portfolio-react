@@ -1,5 +1,4 @@
 export const metadata = [
-
   {
     title: 'This is forth title',
     date: '2024-11-01',

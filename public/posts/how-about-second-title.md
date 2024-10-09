@@ -1,6 +1,6 @@
 # My Blog Post 002
 
-This is a paragraph with some inline code: `console.log('Hello World');` how does it look ? I dont'know. This is a paragraph with some inline code: `console.log('Hello World');` how does it look ? I dont'know.
+This is a paragraph with some inline code: `console.log('Hello World');`Inline code should display as expected in-line not in the new line. The content in this paragraph is to be long enough to span lines in multiple rows in the page so that it would look nice as a lenghty paragrapgh.
 
 Here's another paragraph 002.
 

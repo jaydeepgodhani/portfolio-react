@@ -1,3 +1,5 @@
+import { metadata } from "./metadata";
+
 const weekday = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
 
 const dark = () => {
@@ -94,6 +96,17 @@ export function dateToReadable(date) {
   const firstIndex = dateString.indexOf(" ");
   const lastIndex = dateString.lastIndexOf(" ");
   return dateString.slice(firstIndex + 1, lastIndex);
+}
+
+export function isPostAvailable(post) {
+  let flag = false;
+  for (let i = 0; i < metadata.length; i++) {
+    if (metadata[i].link === post) {
+      flag = true;
+      break;
+    }
+  }
+  return flag;
 }
 
 export const paragraphs = {

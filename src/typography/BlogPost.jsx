@@ -1,16 +1,18 @@
 import React, { useLayoutEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
+import NoMatch from "../NoMatch";
+import { isPostAvailable } from "../helpers/utilities";
 import Para from "./Para";
 
 const BlogPost = () => {
   const { slug } = useParams();
   const [content, setContent] = useState(null);
+  const postAvailable = isPostAvailable(slug);
 
   useLayoutEffect(() => {
     const fetchFileContent = async () => {
-      const url = `${import.meta.env.BASE_URL}/posts/${slug}.md`;
-      const response = await fetch(url);
+      const response = await fetch(`${import.meta.env.BASE_URL}/posts/${slug}.md`);
       if (response.ok) {
         const text = await response.text();
         setContent(text);
@@ -20,6 +22,8 @@ const BlogPost = () => {
     };
     fetchFileContent();
   }, [slug]);
+
+  if (!postAvailable) return <NoMatch />;
 
   return (
     <article className="animate-fade">
