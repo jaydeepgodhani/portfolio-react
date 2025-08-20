@@ -1,5 +1,4 @@
-import React from "react";
-import photo from './assets/photu.jpeg';
+import photo from './assets/photu.webp';
 import { paragraphs, textBlocks } from "./helpers/utilities";
 import Block from "./typography/Block";
 import Heading from "./typography/Heading";

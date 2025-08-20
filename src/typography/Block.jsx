@@ -1,4 +1,3 @@
-import React from "react";
 import Horizontal from "./Horizontal";
 import Para from "./Para";
 
