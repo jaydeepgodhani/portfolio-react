@@ -5,17 +5,23 @@ import NoMatch from "../NoMatch";
 import { isPostAvailable } from "../helpers/utilities";
 import Para from "./Para";
 
-const BlogPost = () => {
+const BlogPost = ({ sublink }) => {
   const { slug } = useParams();
   const [content, setContent] = useState(null);
   const postAvailable = isPostAvailable(slug);
 
   useLayoutEffect(() => {
     const fetchFileContent = async () => {
-      const path = `/posts/${slug}.md`;
+      const path = `/${sublink}/${slug}.md`;
       const response = await fetch(path);
+      console.log('resp...');
+
       if (response.ok) {
+        console.log('ok...');
+
         const text = await response.text();
+        console.log('text...');
+
         setContent(text);
       } else {
         console.error("Failed to load markdown file:", response.status);

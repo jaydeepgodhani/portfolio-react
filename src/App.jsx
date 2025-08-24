@@ -1,6 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 import Home from "./Home";
+import Knowledge from "./Knowledge";
 import Navbar from "./Navbar";
 import NoMatch from "./NoMatch";
 import PostsPage from "./PostsPage";
@@ -21,7 +22,9 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/winnings" element={<Winnings />} />
           <Route path="/posts" element={<PostsPage />} />
-          <Route path="/posts/:slug" element={<BlogPost />} />
+          <Route path="/knowledge" element={<Knowledge />} />
+          <Route path="/knowledge/:slug" element={<BlogPost sublink={'knowledge'} />} />
+          <Route path="/posts/:slug" element={<BlogPost sublink={'posts'} />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
         {!isSlugUrl.test(location.pathname) && <Footer />}

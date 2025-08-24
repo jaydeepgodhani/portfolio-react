@@ -31,13 +31,36 @@ const Navbar = () => {
         </li>
         <div className="flex flex-row w-full mt-3 justify-center lg:mt-0 lg:w-[50%] xl:w-[40%] 2xl:w-[50%]">
           <li className="mx-4">
-            <NavLink to="/projects" className={ ({isActive})  => isActive ? "text-primary" : ""}>Projects</NavLink>
+            <NavLink
+              to="/projects"
+              className={({ isActive }) => (isActive ? "text-primary" : "")}
+            >
+              Projects
+            </NavLink>
           </li>
           <li className="mx-4">
-            <NavLink to="/winnings" className={ ({isActive})  => isActive ? "text-primary" : ""}>Winnings</NavLink>
+            <NavLink
+              to="/winnings"
+              className={({ isActive }) => (isActive ? "text-primary" : "")}
+            >
+              Winnings
+            </NavLink>
           </li>
           <li className="mx-4">
-            <NavLink to="/posts" className={ ({isActive})  => isActive ? "text-primary" : ""}>Posts</NavLink>
+            <NavLink
+              to="/posts"
+              className={({ isActive }) => (isActive ? "text-primary" : "")}
+            >
+              Posts
+            </NavLink>
+          </li>
+          <li className="mx-4">
+            <NavLink
+              to="/knowledge"
+              className={({ isActive }) => (isActive ? "text-primary" : "")}
+            >
+              Knowledge
+            </NavLink>
           </li>
           <li>
             <button
