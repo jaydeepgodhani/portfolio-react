@@ -1,11 +1,10 @@
-import React from "react";
 import Heading from "./typography/Heading";
 import Para from "./typography/Para";
 
 const Footer = () => {
 
   return (
-    <div className="pt-6 animate-fade">
+    <footer className="pt-6 animate-fade">
       <Heading text={"Contact"} />
       <Para>
         Feel free to reach me at{" "}
@@ -21,7 +20,7 @@ const Footer = () => {
       </Para>
       <div className="flex justify-center my-16 text-primary transition-all duration-1000 text-xs">{'⬥ ⬥ ⬥'}</div>
 
-    </div>
+    </footer>
   );
 };
 

@@ -1,5 +1,3 @@
-import React from "react";
-
 const NoMatch = () => {
   return (
     <div className="p-32 flex items-center justify-center text-primary flex-col">
