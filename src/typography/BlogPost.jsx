@@ -2,13 +2,21 @@ import { useLayoutEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { materialDark, materialLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
 import NoMatch from "../NoMatch";
-import { isPostAvailable } from "../helpers/utilities";
+import { DARK, isPostAvailable } from "../helpers/utilities";
 import Para from "./Para";
 
 const BlogPost = ({ sublink }) => {
+  const [codeStyle, setCodeStyle] = useState(materialDark);
+  window.addEventListener("storage", () => {
+    if(localStorage.theme === DARK)
+      setCodeStyle(materialDark);
+    else
+      setCodeStyle(materialLight);
+  });
+
   const { slug } = useParams();
   const [content, setContent] = useState(null);
   const postAvailable = isPostAvailable(sublink, slug);
@@ -63,8 +71,6 @@ const BlogPost = ({ sublink }) => {
           code: (obj) => {
             const { children, className, node, ...rest } = obj;
             const match = /language-(\w+)/.exec(className || "");
-            console.log("match... ", match);
-
             return !obj.className ? (
               <code className="py-1 px-2 rounded-md bg-code-bg text-secondary text-sm break-all wrap-break-word whitespace-pre">
                 {obj.children}
@@ -75,7 +81,7 @@ const BlogPost = ({ sublink }) => {
                 PreTag="div"
                 className="py-4 px-4 rounded-md bg-code-bg text-secondary text-sm break-all wrap-break-word whitespace-pre-wrap"
                 language={match[1]}
-                style={dark}
+                style={codeStyle}
               >
                 {String(children).replace(/\n$/, "")}
               </SyntaxHighlighter>
@@ -103,6 +109,17 @@ const BlogPost = ({ sublink }) => {
           ),
           ul: ({ children }) => <ul className="text-secondary">{children}</ul>,
           li: ({ children }) => <li className="text-secondary">{children}</li>,
+          table: ({ children }) => (
+            <table className="text-secondary border-[1px]">{children}</table>
+          ),
+          thead: ({ children }) => (
+            <thead className="text-secondary p-2">{children}</thead>
+          ),
+          tr: ({ children }) => <tr className="text-secondary">{children}</tr>,
+          th: ({ children }) => <th className="text-secondary">{children}</th>,
+          td: ({ children }) => (
+            <td className="text-secondary py-2 align-top">{children}</td>
+          ),
         }}
       >
         {content}

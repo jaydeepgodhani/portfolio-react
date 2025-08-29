@@ -13,7 +13,6 @@ const checkSubset = (parentArray, subsetArray) => {
 }
 
 const PostsPage = () => {
-  // console.log(markdownContent2);
   const [content, setContent] = useState(metadata);
   const [filter, setFilter] = useState([]);
 

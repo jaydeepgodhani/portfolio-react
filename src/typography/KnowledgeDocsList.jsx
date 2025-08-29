@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 
 const KnowledgeDocsList = ({ content }) => {
-  console.log("5... ", content);
-
   return (
-    <div>
+    <div className="animate-fade">
       {content.map((obj) => (
         <div key={obj.link} className="flex flex-row py-4 ml-8">
           <Link

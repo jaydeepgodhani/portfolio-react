@@ -5,11 +5,13 @@ const weekday = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
 const dark = () => {
   document.documentElement.classList.add(DARK);
   localStorage.theme = DARK;
+  window.dispatchEvent(new Event("storage"));
 };
 
 const light = () => {
   document.documentElement.classList.remove(DARK);
   localStorage.theme = LIGHT;
+  window.dispatchEvent(new Event("storage"));
 };
 
 export const DARK = "dark";
@@ -112,8 +114,6 @@ export function isPostAvailable(sublink, post) {
       break;
     }
   }
-  console.log('flag...', flag);
-
   return flag;
 }
 
