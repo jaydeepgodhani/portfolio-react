@@ -30,8 +30,4 @@ export const knowledgeDocs = [
     title: "javscript 101",
     link: "js-jargons",
   },
-  {
-    title: "python 202",
-    link: "python-202",
-  },
 ];

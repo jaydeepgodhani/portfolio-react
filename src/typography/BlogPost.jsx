@@ -110,15 +110,20 @@ const BlogPost = ({ sublink }) => {
           ul: ({ children }) => <ul className="text-secondary">{children}</ul>,
           li: ({ children }) => <li className="text-secondary">{children}</li>,
           table: ({ children }) => (
-            <table className="text-secondary border-[1px]">{children}</table>
+            <table className="text-secondary border-[2px]">{children}</table>
           ),
           thead: ({ children }) => (
-            <thead className="text-secondary p-2">{children}</thead>
+            <thead className="text-secondary">{children}</thead>
           ),
-          tr: ({ children }) => <tr className="text-secondary">{children}</tr>,
+          tbody: ({ children }) => (
+            <thead className="text-secondary">{children}</thead>
+          ),
+          tr: ({ children }) => (
+            <tr className="text-secondary border-b-[2px]">{children}</tr>
+          ),
           th: ({ children }) => <th className="text-secondary">{children}</th>,
           td: ({ children }) => (
-            <td className="text-secondary py-2 align-top">{children}</td>
+            <td className="text-secondary py-2 px-2 align-top">{children}</td>
           ),
         }}
       >
