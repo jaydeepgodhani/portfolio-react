@@ -11,6 +11,8 @@ import CodeBlock from "./CodeBlock";
 import Header from "./Header";
 import Para from "./Para";
 
+const commonClassName = "text-secondary animate-fade";
+
 const BlogPost = ({ sublink }) => {
   const [codeStyle, setCodeStyle] = useState(localStorage.theme);
   window.addEventListener("storage", () => {
@@ -40,60 +42,78 @@ const BlogPost = ({ sublink }) => {
 
   return (
     <article className="animate-fade">
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        components={{
-          h1: ({ children }) => <Header content={children} />,
-          h2: ({ children }) => <Header content={children} />,
-          h3: ({ children }) => <Header content={children} />,
-          h4: ({ children }) => <Header content={children} />,
-          p: ({ children }) => <Para>{children}</Para>,
-          blockquote: ({ children }) => (
-            <blockquote className="pl-4 border-l-4 bg-quote-bg border-primary py-1 my-1 animate-fade">
-              {children}
-            </blockquote>
-          ),
-          code: (obj) => <CodeBlock obj={obj} codeStyle={codeStyle} />,
-          a: ({ href, children }) => (
-            <a href={href} target="_blank" rel="noopener noreferrer">
-              {children}
-            </a>
-          ),
-          strong: ({ children }) => (
-            <b className="text-secondary">{children}</b>
-          ),
-          ol: ({ children }) => (
-            <ul
-              style={{ listStyle: "decimal", paddingLeft: "2rem" }}
-              className="text-secondary"
-            >
-              {children}
-            </ul>
-          ),
-          ul: ({ children }) => <ul className="text-secondary">{children}</ul>,
-          li: ({ children }) => <li className="text-secondary">{children}</li>,
-          table: ({ children }) => (
-            <table className="text-secondary border-[2px] w-full">
-              {children}
-            </table>
-          ),
-          thead: ({ children }) => (
-            <thead className="text-secondary">{children}</thead>
-          ),
-          tbody: ({ children }) => (
-            <thead className="text-secondary">{children}</thead>
-          ),
-          tr: ({ children }) => (
-            <tr className="text-secondary border-b-[2px]">{children}</tr>
-          ),
-          th: ({ children }) => <th className="text-secondary">{children}</th>,
-          td: ({ children }) => (
-            <td className="text-secondary py-2 px-2 align-top">{children}</td>
-          ),
-        }}
-      >
-        {content}
-      </ReactMarkdown>
+      {!content && <div className="text-primary py-12 text-xl">Loading...</div>}
+      {content && (
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          components={{
+            h1: ({ children }) => <Header content={children} size="4xl" />,
+            h2: ({ children }) => <Header content={children} size="3xl" />,
+            h3: ({ children }) => <Header content={children} size="2xl" />,
+            h4: ({ children }) => <Header content={children} size="xl" />,
+            p: ({ children }) => <Para>{children}</Para>,
+            blockquote: ({ children }) => (
+              <blockquote className="pl-4 border-l-4 bg-quote-bg border-primary py-1 my-1 animate-fade">
+                {children}
+              </blockquote>
+            ),
+            code: (obj) => <CodeBlock obj={obj} codeStyle={codeStyle} />,
+            a: ({ href, children }) => (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="animate-fade"
+              >
+                {children}
+              </a>
+            ),
+            strong: ({ children }) => (
+              <b className={commonClassName}>{children}</b>
+            ),
+            ol: ({ children }) => (
+              <ul
+                style={{ listStyle: "decimal", paddingLeft: "2rem" }}
+                className={commonClassName}
+              >
+                {children}
+              </ul>
+            ),
+            ul: ({ children }) => (
+              <ul className={commonClassName}>{children}</ul>
+            ),
+            li: ({ children }) => (
+              <li className={commonClassName}>{children}</li>
+            ),
+            table: ({ children }) => (
+              <table className="text-secondary border-[2px] w-full animate-fade">
+                {children}
+              </table>
+            ),
+            thead: ({ children }) => (
+              <thead className={commonClassName}>{children}</thead>
+            ),
+            tbody: ({ children }) => (
+              <thead className={commonClassName}>{children}</thead>
+            ),
+            tr: ({ children }) => (
+              <tr className="text-secondary border-b-[2px] animate-fade">
+                {children}
+              </tr>
+            ),
+            th: ({ children }) => (
+              <th className={commonClassName}>{children}</th>
+            ),
+            td: ({ children }) => (
+              <td className="text-secondary py-2 px-2 align-top animate-fade">
+                {children}
+              </td>
+            ),
+          }}
+        >
+          {content}
+        </ReactMarkdown>
+      )}
     </article>
   );
 };

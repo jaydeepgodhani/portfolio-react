@@ -30,4 +30,8 @@ export const knowledgeDocs = [
     title: "javscript 101",
     link: "js-jargons",
   },
+  {
+    title: "testing",
+    link: "testing",
+  },
 ];

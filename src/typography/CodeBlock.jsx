@@ -3,6 +3,8 @@ import { FiCheck, FiClipboard } from "react-icons/fi"; // for icons
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 const CodeBlock = ({ obj, codeStyle }) => {
+  console.log('render... ', obj);
+
   const [copied, setCopied] = useState(false);
   const { children, className, ...rest } = obj;
   const match = /language-(\w+)/.exec(className || "");
@@ -14,7 +16,7 @@ const CodeBlock = ({ obj, codeStyle }) => {
   };
 
   return !className ? (
-    <code className="py-1 px-2 rounded-md bg-code-bg text-secondary text-sm break-all wrap-break-word whitespace-pre">
+    <code className="py-1 px-2 rounded-md bg-code-bg text-secondary text-sm break-all wrap-break-word whitespace-pre animate-fade">
       {children}
     </code>
   ) : match ? (
@@ -30,7 +32,7 @@ const CodeBlock = ({ obj, codeStyle }) => {
         {...rest}
         key={localStorage.theme + 'documentId'}
         PreTag="div"
-        className="py-4 px-4 rounded-md bg-code-bg text-secondary text-sm break-all wrap-break-word whitespace-pre-wrap"
+        className="py-4 px-4 rounded-md bg-code-bg text-secondary text-sm break-all wrap-break-word whitespace-pre-wrap animate-fade"
         language={match[1]}
         style={codeStyle}
       >
