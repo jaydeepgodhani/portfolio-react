@@ -24,6 +24,14 @@
 
   <meta name="twitter:image" content="https://ik.imagekit.io/jaydeepgodhani/share_banner.jpg">
   <link rel="icon" href="/j_icon.ico" type="image/x-icon">
+  <script>
+    // Check localStorage and set theme early
+    if (localStorage.theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
 </head>
 
 <body>
