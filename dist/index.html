@@ -24,8 +24,16 @@
 
   <meta name="twitter:image" content="https://ik.imagekit.io/jaydeepgodhani/share_banner.jpg">
   <link rel="icon" href="/j_icon.ico" type="image/x-icon">
-  <script type="module" crossorigin src="/assets/index-4RnDueZ8.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-B5etQztU.css">
+  <script>
+    // Check localStorage and set theme early
+    if (localStorage.theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <script type="module" crossorigin src="/assets/index-DLgNo9mp.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-YaDdSLu5.css">
 </head>
 
 <body>

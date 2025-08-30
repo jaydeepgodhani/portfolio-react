@@ -69,8 +69,9 @@ const BlogPost = ({ sublink }) => {
             </blockquote>
           ),
           code: (obj) => {
-            const { children, className, node, ...rest } = obj;
+            const { children, className, ...rest } = obj;
             const match = /language-(\w+)/.exec(className || "");
+            const content = String(children).replace(/\n$/, "");
             return !obj.className ? (
               <code className="py-1 px-2 rounded-md bg-code-bg text-secondary text-sm break-all wrap-break-word whitespace-pre">
                 {obj.children}
@@ -83,11 +84,11 @@ const BlogPost = ({ sublink }) => {
                 language={match[1]}
                 style={codeStyle}
               >
-                {String(children).replace(/\n$/, "")}
+                {content}
               </SyntaxHighlighter>
             ) : (
               <div className="py-1 px-2 rounded-md bg-code-bg text-secondary text-sm break-all wrap-break-word whitespace-pre">
-                {String(children).replace(/\n$/, "")}
+                {content}
               </div>
             );
           },
