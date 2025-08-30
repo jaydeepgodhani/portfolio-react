@@ -38,7 +38,7 @@ const Navbar = () => {
                   <NavLink
                     to="/projects"
                     className={({ isActive }) =>
-                      isActive ? "text-primary" : ""
+                      isActive ? "text-primary" : "special"
                     }
                   >
                     Projects
@@ -48,7 +48,7 @@ const Navbar = () => {
                   <NavLink
                     to="/winnings"
                     className={({ isActive }) =>
-                      isActive ? "text-primary" : ""
+                      isActive ? "text-primary" : "special"
                     }
                   >
                     Winnings
@@ -58,7 +58,7 @@ const Navbar = () => {
                   <NavLink
                     to="/posts"
                     className={({ isActive }) =>
-                      isActive ? "text-primary" : ""
+                      isActive ? "text-primary" : "special"
                     }
                   >
                     Posts
@@ -68,7 +68,7 @@ const Navbar = () => {
                   <NavLink
                     to="/knowledge"
                     className={({ isActive }) =>
-                      isActive ? "text-primary" : ""
+                      isActive ? "text-primary" : "special"
                     }
                   >
                     Knowledge

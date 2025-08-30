@@ -121,7 +121,7 @@ export const paragraphs = {
   aboutme: [
     "I am a software engineer based out of Bengaluru. I am currently working at Walmart.",
     "This website is my humble abode on the internet, where I pen my musings in here about software development, specifically JavaScript, TypeScript and web technologies in general.",
-    "In the world of AI I still fascinate for Frontend Technology, is that a crime ?",
+    "In the world of AI I still fascinate for Frontend Ecosystem.",
   ],
 };
 
