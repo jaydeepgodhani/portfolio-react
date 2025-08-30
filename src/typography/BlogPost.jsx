@@ -9,7 +9,7 @@ import { DARK, isPostAvailable } from "../helpers/utilities";
 import Para from "./Para";
 
 const BlogPost = ({ sublink }) => {
-  const [codeStyle, setCodeStyle] = useState(materialDark);
+  const [codeStyle, setCodeStyle] = useState(localStorage.theme);
   window.addEventListener("storage", () => {
     if(localStorage.theme === DARK)
       setCodeStyle(materialDark);
