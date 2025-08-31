@@ -19,7 +19,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="w-screen sticky top-0 backdrop-opacity-97 backdrop-blur-[10px] z-10">
+    <div className="w-screen sticky top-0 backdrop-opacity-97 backdrop-blur-[10px] z-10 bg-bg/45">
       <div className="flex items-center flex-row justify-center">
         <div></div>
         <div className="2xl:w-1/2 lg:w-3/4 py-[12px] px-4">
