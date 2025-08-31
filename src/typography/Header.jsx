@@ -1,5 +1,3 @@
-import React from "react";
-
 function removeSpecials(str) {
   var lower = str.toLowerCase();
   var upper = str.toUpperCase();

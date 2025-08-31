@@ -22,7 +22,7 @@ const Navbar = () => {
     <div className="w-screen sticky top-0 backdrop-opacity-97 backdrop-blur-[10px] z-10">
       <div className="flex items-center flex-row justify-center">
         <div></div>
-        <div className="2xl:w-1/2 lg:w-3/4 py-6 px-4">
+        <div className="2xl:w-1/2 lg:w-3/4 py-[12px] px-4">
           <nav>
             <ul className="w-full flex flex-col text-xl items-center lg:flex-row">
               <li className="lg:w-[50%] xl:w-[60%] 2xl:w-[50%]">

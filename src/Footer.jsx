@@ -1,7 +1,24 @@
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { useRef } from "react";
+import catPlaying from './assets/cat_playing.lottie';
 import Heading from "./typography/Heading";
 import Para from "./typography/Para";
 
 const Footer = () => {
+  const dotLottieRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    if (dotLottieRef.current) {
+      dotLottieRef.current.play();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (dotLottieRef.current) {
+      dotLottieRef.current.pause();
+    }
+  };
+
   return (
     <footer className="pt-6 animate-fade">
       <Heading text={"Contact"} />
@@ -28,8 +45,24 @@ const Footer = () => {
           LeetCode
         </a>
       </Para>
-      <div className="flex justify-center my-16 text-primary transition-all duration-1000 text-xs">
+      {/* <div className="flex justify-center my-16 text-primary transition-all duration-1000 text-xs">
         {"⬥ ⬥ ⬥"}
+      </div> */}
+      <div className="flex justify-center mt-16 text-primary transition-all duration-1000 text-xs">
+        <div
+          className="w-1/3"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <DotLottieReact
+            src={catPlaying}
+            loop={false}
+            autoplay={false}
+            dotLottieRefCallback={(dotLottie) => {
+              dotLottieRef.current = dotLottie;
+            }}
+          />
+        </div>
       </div>
     </footer>
   );

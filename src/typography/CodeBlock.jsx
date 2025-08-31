@@ -3,8 +3,6 @@ import { FiCheck, FiClipboard } from "react-icons/fi"; // for icons
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 const CodeBlock = ({ obj, codeStyle }) => {
-  console.log('render... ', obj);
-
   const [copied, setCopied] = useState(false);
   const { children, className, ...rest } = obj;
   const match = /language-(\w+)/.exec(className || "");

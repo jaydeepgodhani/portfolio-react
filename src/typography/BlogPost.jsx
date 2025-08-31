@@ -14,15 +14,9 @@ import Para from "./Para";
 const commonClassName = "text-secondary animate-fade";
 
 const BlogPost = ({ sublink }) => {
-  const [codeStyle, setCodeStyle] = useState(localStorage.theme);
-  window.addEventListener("storage", () => {
-    if (localStorage.theme === DARK) setCodeStyle(materialDark);
-    else setCodeStyle(materialLight);
-  });
-
+  const [codeStyle, setCodeStyle] = useState(localStorage.theme === 'dark' ? materialDark : materialLight);
   const { slug } = useParams();
   const [content, setContent] = useState(null);
-  const postAvailable = isPostAvailable(sublink, slug);
 
   useLayoutEffect(() => {
     const fetchFileContent = async () => {
@@ -38,8 +32,17 @@ const BlogPost = ({ sublink }) => {
     fetchFileContent();
   }, [slug, sublink]);
 
+  window.addEventListener("storage", () => {
+    if (localStorage.theme === DARK) setCodeStyle(materialDark);
+    else setCodeStyle(materialLight);
+  });
+
+
+  const postAvailable = isPostAvailable(sublink, slug);
+
   if (!postAvailable) return <NoMatch />;
 
+  // Bug : Navigating to md page wont colorize the block but refresh does
   return (
     <article className="animate-fade">
       {!content && <div className="text-primary py-12 text-xl">Loading...</div>}

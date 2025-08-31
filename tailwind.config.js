@@ -25,7 +25,7 @@ export default {
         30: "-0.5rem",
       },
       animation: {
-        fade: "fadeIn 0.5s ease-in-out forwards",
+        fade: "fadeIn 0.3s ease-in-out forwards",
       },
       keyframes: {
         fadeIn: {
