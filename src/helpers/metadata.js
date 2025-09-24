@@ -27,11 +27,35 @@ export const metadata = [
 
 export const knowledgeDocs = [
   {
-    title: "javscript 101",
-    link: "js-jargons",
+    title: "Javascript 101",
+    link: "js-doc",
   },
   {
-    title: "testing",
-    link: "testing",
+    title: "Java Snippets",
+    link: "java-doc",
+  },
+  {
+    title: "Docker Commands",
+    link: "docker-doc",
+  },
+  {
+    title: "HTML",
+    link: "html-doc",
+  },
+  {
+    title: "Javascript Snippets",
+    link: "js-snippets",
+  },
+  {
+    title: "Git Commands",
+    link: "git-doc",
+  },
+  {
+    title: "Terminal Commands",
+    link: "terminal-doc",
+  },
+  {
+    title: "NodeJS 101",
+    link: "node-doc",
   },
 ];

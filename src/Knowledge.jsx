@@ -3,6 +3,8 @@ import { knowledgeDocs } from './helpers/metadata';
 import KnowledgeDocsList from "./typography/KnowledgeDocsList";
 
 const Knowledge = () => {
+  console.log('lnowledge... ');
+
   return (
     <div className="animate-fade">
       <h2 className="font-heading text-2xl py-6 text-primary">Docs</h2>
